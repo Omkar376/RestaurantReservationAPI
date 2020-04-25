@@ -11,15 +11,18 @@ public class RestaurantService {
 	@Autowired
 	private RestaurantRepository restaurantRespository;
 	
+	//Get All Restaurants
 	public List<Restaurant> getAllRestaurants() {
 		return restaurantRespository.findAll();
 				
 	}
 	
+	//Create a new Restaurant
 	public void save(Restaurant restaurant) {
 		restaurantRespository.save(restaurant);
 	}
 	
+	//Get Restaurant by ID
 	public Restaurant get(Integer id) {
 		return restaurantRespository.findById(id).get();
 	}

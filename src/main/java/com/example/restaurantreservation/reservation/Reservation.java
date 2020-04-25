@@ -13,9 +13,19 @@ public class Reservation {
 	private Integer id;
 	private Integer restaurant_id;
 	private Integer user_id;
+	private Date start_datetime;
+	private Date end_datetime;
+	private String table_type;
 	
+
+	
+	public Reservation() {
+		
+	}
+	
+	//Constructor
 	public Reservation(Integer id, Integer restaurant_id, Integer user_id, Date start_datetime, Date end_datetime,
-			Integer table_type) {
+			String table_type) {
 		super();
 		this.id = id;
 		this.restaurant_id = restaurant_id;
@@ -25,10 +35,8 @@ public class Reservation {
 		this.table_type = table_type;
 	}
 	
-	private Date start_datetime;
-	private Date end_datetime;
-	private Integer table_type;
-	
+
+	//Getters and Setters for fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
@@ -61,10 +69,10 @@ public class Reservation {
 	public void setEnd_datetime(Date end_datetime) {
 		this.end_datetime = end_datetime;
 	}
-	public Integer getTable_type() {
+	public String getTable_type() {
 		return table_type;
 	}
-	public void setTable_type(Integer table_type) {
+	public void setTable_type(String table_type) {
 		this.table_type = table_type;
 	}
 	

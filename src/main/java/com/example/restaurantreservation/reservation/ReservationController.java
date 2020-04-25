@@ -16,16 +16,22 @@ public class ReservationController {
 	@Autowired
 	private ReservationService reservationService;
 	
+	//Get All Reservations
 	@RequestMapping("/reservations")
 	public List<Reservation> getReservations() {
+
 		return reservationService.getAllReservations();
 				
 	}
 	
-	@PostMapping("/reservation")
+	//Create a new Reservations
+	@PostMapping("/reservations")
 	public String createReservation(@RequestBody Reservation newReservation) {
 		
+		//Check if new reservation can be created
 		boolean reservation_status = reservationService.getReservationStatus(newReservation);
+		
+		//If status is true create a new reservation
 		if(reservation_status) {			
 			reservationService.save(newReservation);			
 			return "Reservation Confirmed";
