@@ -44,7 +44,7 @@ public class ReservationService {
 		starttime = starttime.minusMinutes(10);
 		Date offset_starttime = starttime.toDate();
 		
-		//Adding Offset to Start Date Time for cleaning
+		//Adding Offset to End Date Time for cleaning
 		DateTime endtime = new DateTime(reservation.getEnd_datetime());
 		endtime = endtime.plusMinutes(10);
 		Date offset_endtime = endtime.toDate();
@@ -57,18 +57,18 @@ public class ReservationService {
 		Restaurant restaurant = restaurantRespository.findById(reservation.getRestaurant_id()).get();
 		Integer table_count = 0;
 		switch (reservation.getTable_type()) {
-        case "two_table":
-        	table_count = restaurant.getTwo_table(); 
-            break;
-        case "four_table":
-        	table_count = restaurant.getFour_table();
-            break;
-        case "six_table":
-        	table_count = restaurant.getSix_table();
-            break;
-        case "twelve_table":
-        	table_count = restaurant.getTwelve_table();
-            break;
+        		case "two_table":
+        			table_count = restaurant.getTwo_table(); 
+            			break;
+        		case "four_table":
+        			table_count = restaurant.getFour_table();
+           			break;
+        		case "six_table":
+        			table_count = restaurant.getSix_table();
+            			break;
+        		case "twelve_table":
+        			table_count = restaurant.getTwelve_table();
+            			break;
 		}
 		
 		//Check if table is available
