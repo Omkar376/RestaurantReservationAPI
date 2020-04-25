@@ -38,6 +38,7 @@ public class ReservationService {
 	//Get Status if reservation can be confirmed  
 	public boolean getReservationStatus(Reservation reservation) {
 		
+
 		//Adding Offset to Start Date Time for cleaning
 		DateTime starttime = new DateTime(reservation.getStart_datetime());
 		starttime = starttime.minusMinutes(10);
@@ -51,7 +52,7 @@ public class ReservationService {
 		//Get confirmed reservation in that period
 		List<Reservation> confirmedRservations = reservationRespository.getConfirmedReservations(reservation.getRestaurant_id(),
 				reservation.getTable_type(), offset_starttime,  offset_endtime);
-		
+	
 		//Get available table count
 		Restaurant restaurant = restaurantRespository.findById(reservation.getRestaurant_id()).get();
 		Integer table_count = 0;

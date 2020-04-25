@@ -2,11 +2,11 @@ package com.example.restaurantreservation.reservation;
 
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 
+import com.example.restaurantreservation.restaurant.Restaurant;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Integer>{
 
@@ -19,5 +19,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
 			"    ?3 between r.start_datetime and r.end_datetime\r\n" + 
 			"    OR\r\n" + 
 			"    r.start_datetime between ?3 and ?4)")
+
     List<Reservation> getConfirmedReservations(Integer id, String table_type, Date start_datetime , Date end_datetime);
+
 }

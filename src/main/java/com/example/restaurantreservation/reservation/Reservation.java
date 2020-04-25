@@ -17,8 +17,6 @@ public class Reservation {
 	private Date end_datetime;
 	private String table_type;
 	
-
-	
 	public Reservation() {
 		
 	}
